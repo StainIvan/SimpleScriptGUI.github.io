@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua Скрипт для Roblox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="code-block">
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+
+local Window = Library.CreateLib("Simple GUI Cheat", "RJTheme3")
+
+local Tab = Window:NewTab("Player")
+
+local Section = Tab:NewSection("Speed")
+
+Section:NewSlider("Speed", "Speed of God", 500, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+local Section = Tab:NewSection("Jump")
+
+Section:NewSlider("Jump", "Fly Like A God", 500, 50, function(u)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = u
+end)
+
+local Section = Tab:NewSection("Gravity")
+
+Section:NewToggle("Gravity", "Gravity on = 0 off = 162", function(state)
+    if state then
+        game.Workspace.Gravity = 0
+    else
+        game.Workspace.Gravity = 162
+    end
+end)
+
+local Section = Tab:NewSection("Anti-WalkSpeed")
+
+Section:NewButton("Anti-WalkSpeed", "!!!it's always your speed!!!", function()
+    while game:GetService("RunService").RenderStepped:wait() do
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+    end
+end)
+
+local Section = Tab:NewSection("Fly")
+
+Section:NewButton("Fly", "Simple Fly", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
+        </pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
